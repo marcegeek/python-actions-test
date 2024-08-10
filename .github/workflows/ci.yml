@@ -6,6 +6,15 @@ name: Python application
 on:
   push:
     branches: [ "main" ]
+    paths:
+      # run if code, tests, dependencies and/or settings are changed
+      - '**.py'
+      - 'tests/**'
+      - 'requirements*.txt'
+      - 'pytest.ini'
+      - '.coveragerc'
+      # of course, run if this workflow itself is changed
+      - '.github/workflows/ci.yml'
   pull_request:
     branches: [ "main" ]
 
