@@ -32,8 +32,19 @@ jobs:
       run: |
         # stop the build if there are Python syntax errors or undefined names
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        mkdir -p reports/flake8
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics --output-file reports/flake8/flake8stats.txt --format=html --htmldir=reports/flake8
     - name: Test with pytest
       run: |
         pytest
+    - name: Update reports and generate badges
+      run: |
+        genbadge flake8 -o reports/flake8/badge.svg
+        genbadge coverage -o reports/coverage/badge.svg
+        genbadge tests -i reports/tests/pytest.xml -o reports/tests/badge.svg
+        git config --global user.name = 'github-actions[bot]'
+        git config --global user.email = 'github-actions[bot]@users.noreply.github.com'
+        git add reports
+        git commit -m 'CI: update reports and badges'
+        git push
