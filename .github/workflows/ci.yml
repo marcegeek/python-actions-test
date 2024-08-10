@@ -48,6 +48,7 @@ jobs:
       run: |
         pytest
     - name: Update reports and generate badges
+      if: always()
       run: |
         # generate badges for flake8, coverage and tests
         genbadge flake8 -o reports/flake8/badge.svg
