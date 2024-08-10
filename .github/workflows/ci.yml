@@ -46,8 +46,8 @@ jobs:
         genbadge tests -i reports/tests/pytest.xml -o reports/tests/badge.svg
 
         # prepare commit
-        git config --global user.name = 'github-actions[bot]'
-        git config --global user.email = 'github-actions[bot]@users.noreply.github.com'
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         # force adding everything
         git add -f reports
         git commit -m 'CI: update reports and badges'
