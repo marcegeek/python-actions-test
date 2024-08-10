@@ -5,3 +5,5 @@
 [![Tests](reports/tests/badge.svg)](reports/tests/pytest.html)
 
 Testing Python with Actions
+
+This is a change which shouldn't trigger the CI workflow.
