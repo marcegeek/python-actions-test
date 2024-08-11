@@ -1,6 +1,20 @@
 name: "Validate"
 on:
+  push:
+    branches: [ "main" ]
+    paths:
+      # run if code, tests, dependencies and/or settings are changed
+      - '**.py'
+      - 'tests/**'
+      - 'requirements*.txt'
+      - 'pytest.ini'
+      - '.coveragerc'
+      # of course, run if this workflow itself is changed
+      - '.github/workflows/other.yml'
+  pull_request:
+    branches: [ "main" ]
   workflow_dispatch:
+
 jobs:
   simple:
     runs-on: ubuntu-latest
