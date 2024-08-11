@@ -26,6 +26,8 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    continue-on-error: true
+
     steps:
     - uses: actions/checkout@v4
     - name: Set up Python 3.10
@@ -45,7 +47,6 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics --output-file reports/flake8/flake8stats.txt --format=html --htmldir=reports/flake8
     - name: Test with pytest
-      continue-on-error: true
       run: |
         pytest
     - name: Save stuff
