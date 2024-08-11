@@ -47,18 +47,24 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
-    - name: Update reports and generate badges
+    - name: Save stuff
       if: always()
-      run: |
-        # generate badges for flake8, coverage and tests
-        genbadge flake8 -o reports/flake8/badge.svg
-        genbadge coverage -o reports/coverage/badge.svg
-        genbadge tests -i reports/tests/pytest.xml -o reports/tests/badge.svg
-
-        # prepare commit
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        # force adding everything
-        git add -f reports
-        git commit -m 'CI: update reports and badges'
-        git push
+      uses: actions/upload-artifact@v4
+      with:
+        name: saved-reports
+        path: reports
+    #- name: Update reports and generate badges
+    #  if: always()
+    #  run: |
+    #    # generate badges for flake8, coverage and tests
+    #    genbadge flake8 -o reports/flake8/badge.svg
+    #    genbadge coverage -o reports/coverage/badge.svg
+    #    genbadge tests -i reports/tests/pytest.xml -o reports/tests/badge.svg
+    #
+    #    # prepare commit
+    #    git config --global user.name 'github-actions[bot]'
+    #    git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+    #    # force adding everything
+    #    git add -f reports
+    #    git commit -m 'CI: update reports and badges'
+    #    git push
