@@ -10,3 +10,7 @@ def test_somefunction_42():
 
 def test_fail():
     pytest.fail("Failing on purpose")
+
+
+def test_more():
+    pytest.fail("Nooooo!")
