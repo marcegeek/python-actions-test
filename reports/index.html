@@ -1,29 +1,23 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Status</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .badge { margin-right: 10px; }
-    </style>
-</head>
-<body>
-    <h1>Project Status</h1>
-    <p>
-        <!-- Here are some badges -->
-        <img class="badge" src="https://github.com/marcegeek/python-actions-test/actions/workflows/ci.yml/badge.svg" alt="Workflow Status">
-        <img class="badge" src="coverage/badge.svg" alt="Coverage Status">
-        <img class="badge" src="flake8/badge.svg" alt="Flake8 Status">
-        <img class="badge" src="tests/badge.svg" alt="Testing Status">
-    </p>
-    <h2>Reports</h2>
-    <ul>
-        <li><a href="https://github.com/marcegeek/python-actions-test/actions/workflows/ci.yml">Workflow Status</a></li>
-        <li><a href="tests/pytest.html">Pytest Report</a></li>
-        <li><a href="flake8">Flake8 Report</a></li>
-        <li><a href="coverage">Coverage Report</a></li>
-    </ul>
-</body>
+    <link rel="stylesheet" href="github-markdown.css">
+  </head>
+  <body>
+    <h1 id="project-status">Project Status</h1>
+    <a href="https://github.com/marcegeek/python-actions-test/actions/workflows/ci.yml">
+      <img src="https://github.com/marcegeek/python-actions-test/actions/workflows/ci.yml/badge.svg" alt="Build Status">
+    </a>
+    <a href="flake8">
+     <img src="flake8/badge.svg" alt="Flake8 Status">
+    </a>
+    <a href="coverage">
+      <img src="coverage/badge.svg" alt="Coverage Status">
+    </a>
+    <a href="tests/pytest.html">
+      <img src="tests/badge.svg" alt="Testing Status">
+    </a>
+  </body>
 </html>
