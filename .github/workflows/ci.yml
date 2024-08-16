@@ -44,13 +44,12 @@ jobs:
         mkdir -p reports/flake8
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics --output-file reports/flake8/flake8stats.txt --format=html --htmldir=reports/flake8
+    - name: Lint with Ruff
+      run: |
+        ruff check --exit-zero --output-format github
     - name: Test with pytest
       run: |
         pytest
-    - name: Ruff
-      if: always()
-      run: |
-        ruff check --select ALL --exit-zero --output-format github
     - name: Save stuff
       if: always()
       uses: actions/upload-artifact@v4
