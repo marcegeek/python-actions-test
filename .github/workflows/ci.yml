@@ -28,6 +28,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Extract branch name
+      run: echo "BRANCH_NAME=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_ENV
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
@@ -50,24 +52,42 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
-    - name: Save stuff
+    - name: Update reports and generate badges
       if: always()
-      uses: actions/upload-artifact@v4
+      run: |
+        # generate badges for flake8, coverage and tests
+        genbadge flake8 -o reports/flake8/badge.svg
+        genbadge coverage -o reports/coverage/badge.svg
+        genbadge tests -i reports/tests/pytest.xml -o reports/tests/badge.svg
+        mkdir ${BRANCH_NAME}
+        mv reports/* ${BRANCH_NAME}
+        mv ${BRANCH_NAME} reports
+    - name: Upload reports as artifact
+      if: always()
+      uses: actions/upload-pages-artifact@v3
       with:
-        name: saved-reports
         path: reports
-    #- name: Update reports and generate badges
-    #  if: always()
-    #  run: |
-    #    # generate badges for flake8, coverage and tests
-    #    genbadge flake8 -o reports/flake8/badge.svg
-    #    genbadge coverage -o reports/coverage/badge.svg
-    #    genbadge tests -i reports/tests/pytest.xml -o reports/tests/badge.svg
-    #
-    #    # prepare commit
-    #    git config --global user.name 'github-actions[bot]'
-    #    git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-    #    # force adding everything
-    #    git add -f reports
-    #    git commit -m 'CI: update reports and badges'
-    #    git push
+
+  deploy-reports:
+    # Add a dependency to the build job
+    needs: build
+
+    # Run even if build fails
+    if: always()
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    # Specify runner + deployment step
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
