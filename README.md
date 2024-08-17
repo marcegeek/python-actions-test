@@ -1,5 +1,7 @@
 # python-actions-test
 
+Testing Python with Actions
+
 ## Project Status
 
 main branch:
@@ -15,7 +17,5 @@ dev branch:
 [![Flake8](https://marcegeek.github.io/python-actions-test/dev/flake8/badge.svg)](https://marcegeek.github.io/python-actions-test/dev/flake8/index.html)
 [![Coverage](https://marcegeek.github.io/python-actions-test/dev/coverage/badge.svg)](https://marcegeek.github.io/python-actions-test/dev/coverage/index.html)
 [![Tests](https://marcegeek.github.io/python-actions-test/dev/tests/badge.svg)](https://marcegeek.github.io/python-actions-test/dev/tests/pytest.html)
-
-Testing Python with Actions
 
 This is a change which shouldn't trigger the CI workflow.
