@@ -65,10 +65,10 @@ jobs:
         mkdir ${BRANCH_NAME}
         mv reports/* ${BRANCH_NAME}
         mv ${BRANCH_NAME} reports
+        mv report-templates/* reports
     - name: Deploy reports to gh-pages
       if: always()
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./reports
-        keep_files: true
