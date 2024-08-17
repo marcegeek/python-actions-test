@@ -6,12 +6,14 @@ name: Python application
 on:
   push:
     paths:
-      # run if code, tests, dependencies and/or settings are changed
+      # run if code, tests, dependencies, settings and/or reports are changed
       - '**.py'
       - 'tests/**'
       - 'requirements*.txt'
+      - 'pyproject.toml'
       - 'pytest.ini'
       - '.coveragerc'
+      - 'report-templates/**'
       # of course, run if this workflow itself is changed
       - '.github/workflows/ci.yml'
   pull_request:
@@ -66,8 +68,8 @@ jobs:
         mv ${BRANCH_NAME} reports
         cp -a report-templates/* reports
     - name: Deploy reports to gh-pages
-      if: always()
       uses: peaceiris/actions-gh-pages@v4
+      if: ${{ github.event_name == 'push' }}
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./reports
