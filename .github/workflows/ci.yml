@@ -65,7 +65,7 @@ jobs:
         mkdir ${BRANCH_NAME}
         mv reports/* ${BRANCH_NAME}
         mv ${BRANCH_NAME} reports
-        mv report-templates/* reports
+        cp -a report-templates/* reports
     - name: Deploy reports to gh-pages
       if: always()
       uses: peaceiris/actions-gh-pages@v4
