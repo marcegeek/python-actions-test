@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="3" time="0.120" timestamp="2024-08-17T00:59:23.377493+00:00" hostname="fv-az1542-385"><testcase classname="tests.test_something" name="test_somefunction_42" time="0.001" /><testcase classname="tests.test_something" name="test_fail" time="0.001"><failure message="Failed: Failing on purpose">def test_fail():
-&gt;       pytest.fail("Failing on purpose")
-E       Failed: Failing on purpose
-
-tests/test_something.py:12: Failed</failure></testcase><testcase classname="tests.test_something" name="test_more" time="0.001"><failure message="Failed: Nooooo!">def test_more():
-&gt;       pytest.fail("Nooooo!")
-E       Failed: Nooooo!
-
-tests/test_something.py:16: Failed</failure></testcase></testsuite></testsuites>
