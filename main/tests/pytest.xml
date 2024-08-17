@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="3" time="0.105" timestamp="2024-08-17T07:12:28.506132+00:00" hostname="fv-az1240-393"><testcase classname="tests.test_something" name="test_somefunction_42" time="0.001" /><testcase classname="tests.test_something" name="test_fail" time="0.001"><failure message="Failed: Failing on purpose">def test_fail():
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="3" time="0.085" timestamp="2024-08-17T07:14:43.186701+00:00" hostname="fv-az773-934"><testcase classname="tests.test_something" name="test_somefunction_42" time="0.001" /><testcase classname="tests.test_something" name="test_fail" time="0.001"><failure message="Failed: Failing on purpose">def test_fail():
 &gt;       pytest.fail("Failing on purpose")
 E       Failed: Failing on purpose
 
