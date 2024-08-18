@@ -1,14 +1,32 @@
+[tool.coverage.run]
+# Medir cobertura de ramas
+# branch = True
+source = [
+    # Incluir todo automáticamente
+    ".",
+]
+
+# Especifica archivos o directorios para excluir de la cobertura
+omit = [
+    "tests/*",
+    "venv/*",
+    ".venv/*",
+]
+
+[tool.coverage.html]
+directory = "reports/coverage"
+
+[tool.coverage.xml]
+output = "reports/coverage/coverage.xml"
+
 [tool.pytest.ini_options]
-addopts = "--html=reports/tests/pytest.html --cov=./ --cov-config=.coveragerc --cov-report=term --cov-report=html --cov-report=xml --junit-xml=reports/tests/pytest.xml"
+addopts = "--html=reports/tests/pytest.html --cov=./ --cov-report=term --cov-report=html --cov-report=xml --junit-xml=reports/tests/pytest.xml"
 
 [tool.ruff.lint]
 select = [
     "ALL",
     "D212", # multi-line docstring summary in first line
 ]
-
-[tool.ruff.lint.pydocstyle]
-convention = "pep257"
 
 [tool.ruff.lint.per-file-ignores]
 # ignores for tests, expanded from https://github.com/astral-sh/ruff/issues/4368
@@ -21,3 +39,6 @@ convention = "pep257"
     "ANN", # Don't check missing annotations
     "D", # Missing docstrings
 ]
+
+[tool.ruff.lint.pydocstyle]
+convention = "pep257"
