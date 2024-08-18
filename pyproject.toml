@@ -1,6 +1,6 @@
 [tool.coverage.run]
 # Medir cobertura de ramas
-branch = true
+# branch = True
 source = [
     # Incluir todo automáticamente
     ".",
