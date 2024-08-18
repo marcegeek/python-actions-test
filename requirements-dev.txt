@@ -4,5 +4,5 @@ pytest-cov
 pytest-html
 flake8
 flake8-html
-genbadge[coverage,tests]
+genbadge[coverage,tests] @ git+https://github.com/marcegeek/python-genbadge.git@coverage-branch-without-branches
 ruff
