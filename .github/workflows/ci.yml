@@ -51,6 +51,9 @@ jobs:
     - name: Lint with Ruff
       run: |
         ruff check --exit-zero --output-format github
+    - name: Check typing with mypy
+      run: |
+        mypy . || true
     - name: Test with pytest
       run: |
         pytest

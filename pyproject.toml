@@ -1,3 +1,11 @@
+[tool.mypy]
+exclude = "tests"
+html_report = "reports/mypy"
+xml_report = "reports/mypy"
+junit_xml = "reports/mypy/mypy-junit.xml"
+pretty = true
+strict = true
+
 [tool.coverage.run]
 # Medir cobertura de ramas
 branch = true

@@ -6,3 +6,4 @@ flake8
 flake8-html
 genbadge[coverage,tests] @ git+https://github.com/marcegeek/python-genbadge.git@coverage-branch-without-branches
 ruff
+mypy[reports]
