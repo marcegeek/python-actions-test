@@ -72,8 +72,8 @@ jobs:
         mv ${BRANCH_NAME} reports
         cp -a report-templates/* reports
     - name: Deploy reports to gh-pages
+      if: always() && github.event_name == 'push'
       uses: peaceiris/actions-gh-pages@v4
-      if: ${{ github.event_name == 'push' }}
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./reports
