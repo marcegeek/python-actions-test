@@ -1,1 +1,1 @@
-<?xml-stylesheet type="text/xsl" href="mypy-html.xslt"?><mypy-report-index name="index"><file module="mymodule" name="mymodule.py" total="2" any="2" empty="0" imprecise="0" precise="0" unanalyzed="0"/></mypy-report-index>
+<?xml-stylesheet type="text/xsl" href="mypy-html.xslt"?><mypy-report-index name="index"><file module="mymodule" name="mymodule.py" total="6" any="4" empty="2" imprecise="0" precise="0" unanalyzed="0"/></mypy-report-index>
