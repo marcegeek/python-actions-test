@@ -57,6 +57,12 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+    - name: Upload coverage to coveralls.io
+      if: always()
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        coveralls
     - name: Update reports and generate badges
       if: always()
       run: |
