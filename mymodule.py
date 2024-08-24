@@ -3,4 +3,4 @@ def somefunction():
 
 
 def noncovered():
-    return 10
+    return 15
