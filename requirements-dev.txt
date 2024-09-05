@@ -8,3 +8,4 @@ genbadge[coverage,tests] @ git+https://github.com/marcegeek/python-genbadge.git@
 ruff
 mypy[reports]
 coveralls
+selenium

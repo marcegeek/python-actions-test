@@ -76,6 +76,10 @@ jobs:
         mv reports/* ${BRANCH_NAME}
         mv ${BRANCH_NAME} reports
         cp -a report-templates/* reports
+    - name: Try Selenium
+      if: always()
+      run: |
+        python ./try-selenium.py
     - name: Deploy reports to gh-pages
       if: always() && github.event_name == 'push'
       uses: peaceiris/actions-gh-pages@v4
