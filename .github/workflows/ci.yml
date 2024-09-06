@@ -33,6 +33,10 @@ jobs:
       run: echo "BRANCH_NAME=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_ENV
     - name: List installed packages
       run: apt list --installed
+    - name: Who am I?
+      run: |
+        echo Current user: $(id -u):$(whoami)
+        sudo su -c 'echo sudo user: $(id -u):$(whoami)'
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
