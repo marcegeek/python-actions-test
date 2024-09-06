@@ -28,15 +28,30 @@
 <span id="L18" class="lineno"><a class="lineno" href="#L18">18</a></span>
 <span id="L19" class="lineno"><a class="lineno" href="#L19">19</a></span>
 <span id="L20" class="lineno"><a class="lineno" href="#L20">20</a></span>
+<span id="L21" class="lineno"><a class="lineno" href="#L21">21</a></span>
+<span id="L22" class="lineno"><a class="lineno" href="#L22">22</a></span>
+<span id="L23" class="lineno"><a class="lineno" href="#L23">23</a></span>
+<span id="L24" class="lineno"><a class="lineno" href="#L24">24</a></span>
+<span id="L25" class="lineno"><a class="lineno" href="#L25">25</a></span>
+<span id="L26" class="lineno"><a class="lineno" href="#L26">26</a></span>
 </pre></td>
 <td class="table-code"><pre><span class="line-precise" title="No Anys on this line!">import time</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-precise" title="No Anys on this line!">from selenium import webdriver</span>
+<span class="line-precise" title="No Anys on this line!">from selenium.webdriver.chrome.options import Options</span>
 <span class="line-precise" title="No Anys on this line!">from selenium.webdriver.common.keys import Keys</span>
 <span class="line-precise" title="No Anys on this line!">from selenium.webdriver.common.by import By</span>
 <span class="line-empty" title="No Anys on this line!"></span>
 <span class="line-empty" title="No Anys on this line!"></span>
-<span class="line-precise" title="No Anys on this line!">driver = webdriver.Chrome()</span>
+<span class="line-precise" title="No Anys on this line!">chrome_options = Options()</span>
+<span class="line-any" title="Any Types on this line: 
+Unannotated (x1)">chrome_options.add_argument("--headless")</span>
+<span class="line-any" title="Any Types on this line: 
+Unannotated (x1)">chrome_options.add_argument("--disable-gpu")</span>
+<span class="line-any" title="Any Types on this line: 
+Unannotated (x1)">chrome_options.add_argument("--window-size=1920,1200")</span>
+<span class="line-empty" title="No Anys on this line!"></span>
+<span class="line-precise" title="No Anys on this line!">driver = webdriver.Chrome(options=chrome_options)</span>
 <span class="line-precise" title="No Anys on this line!">driver.get("http://www.python.org")</span>
 <span class="line-precise" title="No Anys on this line!">time.sleep(1)</span>
 <span class="line-precise" title="No Anys on this line!">assert "Python" in driver.title</span>
